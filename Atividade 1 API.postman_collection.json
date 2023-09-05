@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "b18626f9-4935-40fd-a5f2-2c6979da2d1e",
+		"name": "Atividade 1 API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9039393",
+		"_collection_link": "https://winter-shadow-405562.postman.co/workspace/Estudos-EBAC~e03757bd-f54e-4b9a-ba37-650aeba90122/collection/9039393-b18626f9-4935-40fd-a5f2-2c6979da2d1e?action=share&source=collection_link&creator=9039393"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Login do Usuário\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"murilo_ebac@qa.com\",\r\n  \"password\": \"teste122\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Criação do Usuário\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Murilo Augusto\",\r\n  \"email\": \"murilo_ebac@qa.com\",\r\n  \"password\": \"teste122\",\r\n  \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Todos Usuários",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Busca de Todos os Usuários\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Usuário por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Busca do Usuário pelo ID\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Fazer o Delete primeiro para depois fazer esse ERRO\r",
+							"pm.test(\"Erro - Não encontrado Usuário\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11cmlsb19lYmFjQHFhLmNvbSIsInBhc3N3b3JkIjoidGVzdGUxMjIiLCJpYXQiOjE2OTM4ODAyMjEsImV4cCI6MTY5Mzg4MDgyMX0.NbqK2F0sHtWdo6fy7dkeUmA89pThr70MW4X8646D4Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuarios/Bg7ZAlkzUuasAyTL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"Bg7ZAlkzUuasAyTL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Edição do Usuário\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"//Fazer o Delete primeiro para depois fazer esse ERRO\r",
+							"pm.test(\"Erro - Não encontrado Usuário\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11cmlsb19lYmFjQHFhLmNvbSIsInBhc3N3b3JkIjoidGVzdGUxMjIiLCJpYXQiOjE2OTM4ODAyMjEsImV4cCI6MTY5Mzg4MDgyMX0.NbqK2F0sHtWdo6fy7dkeUmA89pThr70MW4X8646D4Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Murilo Augusto 12\",\r\n    \"email\": \"murilo_ebac@qa.com\",\r\n    \"password\": \"teste122\",\r\n    \"administrador\": \"true\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/Bg7ZAlkzUuasAyTL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"Bg7ZAlkzUuasAyTL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar Exclusão do Usuário\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im11cmlsb19lYmFjQHFhLmNvbSIsInBhc3N3b3JkIjoidGVzdGUxMjIiLCJpYXQiOjE2OTM4ODAyMjEsImV4cCI6MTY5Mzg4MDgyMX0.NbqK2F0sHtWdo6fy7dkeUmA89pThr70MW4X8646D4Co",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuarios/Bg7ZAlkzUuasAyTL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"Bg7ZAlkzUuasAyTL"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
